@@ -1,0 +1,56 @@
+/* /* ==========================
+   GLOBAL STYLE (ALL PAGES)
+========================== */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#222;
+} */
+
+/* ==========================
+   UNIFIED NAVBAR (IMPORTANT)
+========================== */
+
+/* .navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    background:#fff;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.navbar .logo{
+    font-size:22px;
+    font-weight:700;
+    color:#4f46e5;
+}
+
+.navbar nav a{
+    margin:0 12px;
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.navbar nav a:hover{
+    color:#4f46e5;
+}
+
+.navbar nav a.active{
+    color:#4f46e5;
+} */ 
+

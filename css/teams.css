@@ -1,0 +1,702 @@
+/* ==========================================
+   StartupFinder - Teams Page
+   Part 1
+========================================== */
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f7fb;
+    color:#222;
+}
+
+/* =======================
+   Navbar
+======================= */
+
+header{
+    position:sticky;
+    top:0;
+    width:100%;
+    background:#fff;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    z-index:1000;
+}
+
+.navbar{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 20px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#4f46e5;
+}
+
+.navbar ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+.navbar ul li a{
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+    transition:.3s;
+}
+
+.navbar ul li a:hover,
+.navbar .active{
+    color:#4f46e5;
+}
+
+/* =======================
+   Hero Section
+======================= */
+
+.hero{
+    text-align:center;
+    padding:100px 20px;
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+    color:#fff;
+}
+
+.hero h1{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+    font-size:18px;
+}
+
+/* =======================
+   Search Section
+======================= */
+
+.search-section{
+    max-width:900px;
+    margin:50px auto;
+    padding:0 20px;
+}
+
+.search-box{
+    display:flex;
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.search-box input{
+    flex:1;
+    border:none;
+    outline:none;
+    padding:18px;
+    font-size:16px;
+}
+
+.search-box button{
+    border:none;
+    background:#4f46e5;
+    color:#fff;
+    padding:0 30px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.search-box button:hover{
+    background:#4338ca;
+}
+
+/* =======================
+   Filters
+======================= */
+
+.filters{
+    max-width:1200px;
+    margin:40px auto;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    padding:0 20px;
+}
+
+.filters button{
+    border:none;
+    padding:12px 22px;
+    border-radius:30px;
+    background:#fff;
+    color:#333;
+    font-weight:600;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.filters button:hover{
+    background:#4f46e5;
+    color:#fff;
+}
+
+.filters .active{
+    background:#4f46e5;
+    color:#fff;
+}
+
+/* ==========================================
+   StartupFinder - Teams Page
+   Part 2
+========================================== */
+
+/* ==========================
+   Teams Grid
+========================== */
+
+.teams-grid{
+
+    max-width:1200px;
+
+    margin:60px auto;
+
+    padding:0 20px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+
+}
+
+/* ==========================
+   Team Card
+========================== */
+
+.team-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.35s ease;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.team-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:5px;
+
+    background:linear-gradient(90deg,#4f46e5,#7c3aed,#06b6d4);
+
+}
+
+.team-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+/* ==========================
+   Team Header
+========================== */
+
+.team-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:10px;
+
+}
+
+.team-header h2{
+
+    font-size:22px;
+
+    color:#222;
+
+}
+
+/* ==========================
+   Status Badge
+========================== */
+
+.status{
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.status.open{
+
+    background:#dcfce7;
+
+    color:#16a34a;
+
+}
+
+.status.full{
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+}
+
+/* ==========================
+   Category
+========================== */
+
+.category{
+
+    color:#4f46e5;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+    font-size:14px;
+
+}
+
+/* ==========================
+   Description
+========================== */
+
+.team-card p{
+
+    color:#666;
+
+    line-height:1.6;
+
+    margin-bottom:15px;
+
+}
+
+/* ==========================
+   Members Info
+========================== */
+
+.members{
+
+    font-weight:600;
+
+    color:#444;
+
+    margin-bottom:15px;
+
+}
+
+/* ==========================
+   Roles Tags
+========================== */
+
+.roles{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-bottom:20px;
+
+}
+
+.roles span{
+
+    background:#eef2ff;
+
+    color:#4f46e5;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+/* ==========================
+   Button
+========================== */
+
+.team-card button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#4f46e5;
+
+    color:#fff;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.team-card button:hover{
+
+    background:#4338ca;
+
+    transform:scale(1.03);
+
+}
+
+.team-card button:disabled{
+
+    background:#9ca3af;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+}
+
+/* ==========================================
+   StartupFinder - Teams Page
+   Part 3
+========================================== */
+
+/* ==========================
+   Pagination
+========================== */
+
+.pagination{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    margin:70px 0;
+    flex-wrap:wrap;
+}
+
+.pagination button{
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:#fff;
+    color:#333;
+    font-weight:600;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.pagination button:hover{
+    background:#4f46e5;
+    color:#fff;
+    transform:translateY(-3px);
+}
+
+.pagination .active{
+    background:#4f46e5;
+    color:#fff;
+}
+
+/* ==========================
+   Create Team Section
+========================== */
+
+.create-team{
+
+    max-width:1100px;
+
+    margin:80px auto;
+
+    padding:60px 30px;
+
+    text-align:center;
+
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+
+    color:#fff;
+
+    border-radius:20px;
+
+}
+
+.create-team h2{
+
+    font-size:38px;
+
+    margin-bottom:20px;
+
+}
+
+.create-team p{
+
+    max-width:700px;
+
+    margin:auto;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+    color:#f3f4f6;
+
+}
+
+.create-btn{
+
+    display:inline-block;
+
+    padding:15px 35px;
+
+    background:#fff;
+
+    color:#4f46e5;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+
+.create-btn:hover{
+
+    background:#111827;
+
+    color:#fff;
+
+    transform:translateY(-4px);
+
+}
+
+/* ==========================
+   Footer
+========================== */
+
+footer{
+
+    background:#111827;
+
+    color:#fff;
+
+    margin-top:80px;
+
+    padding:60px 20px;
+
+}
+
+.footer-container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:40px;
+
+}
+
+.footer-container h3,
+.footer-container h4{
+
+    margin-bottom:20px;
+
+}
+
+.footer-container p{
+
+    color:#ddd;
+
+    line-height:1.8;
+
+}
+
+.footer-container a{
+
+    color:#ddd;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.footer-container a:hover{
+
+    color:#fff;
+
+}
+
+.footer-container i{
+
+    color:#4f46e5;
+
+    margin-right:10px;
+
+}
+
+footer hr{
+
+    margin:40px 0 20px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+}
+
+footer .copyright{
+
+    text-align:center;
+
+    color:#bbb;
+
+}
+
+/* ==========================
+   Responsive Design
+========================== */
+
+@media(max-width:992px){
+
+.hero h1{
+    font-size:42px;
+}
+
+.hero p{
+    font-size:16px;
+}
+
+}
+
+@media(max-width:768px){
+
+.navbar{
+    flex-direction:column;
+    gap:20px;
+}
+
+.navbar ul{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+.search-box{
+    flex-direction:column;
+}
+
+.search-box button{
+    width:100%;
+    padding:16px;
+}
+
+.create-team{
+    margin:50px 20px;
+    padding:40px 20px;
+}
+
+.create-team h2{
+    font-size:30px;
+}
+
+}
+
+@media(max-width:576px){
+
+.hero{
+    padding:70px 20px;
+}
+
+.hero h1{
+    font-size:32px;
+}
+
+.filters button{
+    padding:10px 16px;
+    font-size:14px;
+}
+
+.team-card{
+    padding:20px;
+}
+
+.team-header h2{
+    font-size:20px;
+}
+
+.roles{
+    justify-content:center;
+}
+
+footer .footer-container{
+    text-align:center;
+}
+
+}
+

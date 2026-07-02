@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | StartupFinder</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+    <div class="logo">🚀 StartupFinder</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="ideas.html">Ideas</a>
+        <a href="developers.html">Developers</a>
+        <a href="teams.html">Teams</a>
+        <a href="#" class="active">Dashboard</a>
+                    <button id="themeToggle" class="theme-btn">🌙</button>
+
+    </nav>
+</header>
+
+<!-- ================= DASHBOARD ================= -->
+
+<section class="dashboard">
+
+    <!-- Welcome -->
+    <div class="welcome">
+        <h1>Welcome Back 👋</h1>
+        <p>Manage your startup journey from here</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+
+        <div class="card">
+            <h2>12</h2>
+            <p>Ideas Saved</p>
+        </div>
+
+        <div class="card">
+            <h2>5</h2>
+            <p>Teams Joined</p>
+        </div>
+
+        <div class="card">
+            <h2>18</h2>
+            <p>Developers Contacted</p>
+        </div>
+
+        <div class="card">
+            <h2>3</h2>
+            <p>Active Projects</p>
+        </div>
+
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="actions">
+
+        <button><i class="fas fa-lightbulb"></i> New Idea</button>
+        <button><i class="fas fa-users"></i> Find Team</button>
+        <button><i class="fas fa-code"></i> Browse Developers</button>
+        <button><i class="fas fa-plus"></i> Create Project</button>
+
+    </div>
+
+    <!-- Activity -->
+    <div class="activity">
+
+        <h2>Recent Activity</h2>
+
+        <ul>
+            <li>✔ Joined AI Startup Team</li>
+            <li>✔ Saved "EdTech Platform Idea"</li>
+            <li>✔ Contacted 2 Developers</li>
+            <li>✔ Created Profile</li>
+        </ul>
+
+    </div>
+
+</section>
+<!-- ================= ANALYTICS ================= -->
+
+<div class="analytics">
+
+    <h2>Analytics Overview</h2>
+
+    <div class="chart-box">
+
+        <div class="bar" style="height:60%"></div>
+        <div class="bar" style="height:80%"></div>
+        <div class="bar" style="height:40%"></div>
+        <div class="bar" style="height:90%"></div>
+        <div class="bar" style="height:70%"></div>
+
+    </div>
+
+</div>
+
+<!-- ================= NOTIFICATIONS ================= -->
+
+<div class="notifications">
+
+    <h2>Notifications</h2>
+
+    <ul>
+        <li>🔔 New developer joined your network</li>
+        <li>🚀 Your idea got 10+ views</li>
+        <li>👥 2 teams invited you</li>
+        <li>⭐ Profile updated successfully</li>
+    </ul>
+
+</div>
+
+<!-- ================= PROFILE CARD ================= -->
+
+<div class="profile-card">
+
+    <img src="https://i.pravatar.cc/150?img=12" alt="profile">
+
+    <h2>Surya</h2>
+
+    <p>Web Developer | BCA Student</p>
+
+    <button>Edit Profile</button>
+
+</div>
+
+<script src="js/dashboard.js"></script>
+    <script src="js/theme.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | StartupFinder</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="left">
+
+<h1>🚀 StartupFinder</h1>
+
+<h2>Join the Community</h2>
+
+<p>
+Meet developers, designers, founders,
+and investors to build your dream startup.
+</p>
+
+<img src="images/register.svg" alt="Register">
+
+</div>
+
+<div class="right">
+
+<form id="registerForm">
+
+<h2>Create Account</h2>
+
+<div class="input-box">
+<i class="fa fa-user"></i>
+<input type="text" id="fullname"
+placeholder="Full Name" required>
+</div>
+
+<div class="input-box">
+<i class="fa fa-at"></i>
+<input type="text" id="username"
+placeholder="Username" required>
+</div>
+
+<div class="input-box">
+<i class="fa fa-envelope"></i>
+<input type="email" id="email"
+placeholder="Email Address" required>
+</div>
+
+<div class="input-box">
+<i class="fa fa-phone"></i>
+<input type="tel" id="phone"
+placeholder="Phone Number" required>
+</div>
+
+<div class="input-box">
+
+<select id="role" required>
+
+<option value="">Select Role</option>
+
+<option>Founder</option>
+
+<option>Developer</option>
+
+<option>Designer</option>
+
+<option>Investor</option>
+
+<option>Marketing</option>
+
+</select>
+
+</div>
+
+<div class="input-box">
+
+<i class="fa fa-lock"></i>
+
+<input type="password"
+id="password"
+placeholder="Password"
+required>
+
+</div>
+
+<div class="input-box">
+
+<i class="fa fa-lock"></i>
+
+<input type="password"
+id="confirmPassword"
+placeholder="Confirm Password"
+required>
+
+</div>
+        <!-- Skills -->
+
+        <div class="form-group">
+
+            <label>Select Your Skills</label>
+
+            <div class="skills">
+
+                <label>
+                    <input type="checkbox" value="HTML">
+                    HTML
+                </label>
+
+                <label>
+                    <input type="checkbox" value="CSS">
+                    CSS
+                </label>
+
+                <label>
+                    <input type="checkbox" value="JavaScript">
+                    JavaScript
+                </label>
+
+                <label>
+                    <input type="checkbox" value="React">
+                    React
+                </label>
+
+                <label>
+                    <input type="checkbox" value="Node.js">
+                    Node.js
+                </label>
+
+                <label>
+                    <input type="checkbox" value="Python">
+                    Python
+                </label>
+
+                <label>
+                    <input type="checkbox" value="Java">
+                    Java
+                </label>
+
+                <label>
+                    <input type="checkbox" value="UI/UX">
+                    UI / UX
+                </label>
+
+            </div>
+
+        </div>
+
+        <!-- Experience -->
+
+        <div class="input-box">
+
+            <label for="experience">Experience Level</label>
+            <select id="experience">
+
+                <option value="">
+                    Select your experience level
+                </option>
+
+                <option>Beginner</option>
+
+                <option>Intermediate</option>
+
+                <option>Advanced</option>
+
+            </select>
+
+        </div>
+
+        <!-- Bio -->
+
+        <div class="input-box">
+
+            <textarea
+                id="bio"
+                rows="5"
+                placeholder="Tell us about yourself..."></textarea>
+
+        </div>
+
+        <!-- Upload -->
+
+        <div class="input-box">
+
+            <label class="upload-label">
+
+                <i class="fa fa-image"></i>
+
+                Upload Profile Picture
+
+            </label>
+
+            <input
+                type="file"
+                id="profileImage"
+                accept="image/*">
+
+        </div>
+
+        <!-- Terms -->
+
+        <div class="terms">
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    required>
+
+                I agree to the
+                <a href="#">Terms & Conditions</a>
+
+            </label>
+
+        </div>
+
+        <!-- Register Button -->
+
+        <button
+            type="submit"
+            class="login-btn">
+
+            Create Account
+
+        </button>
+
+        <!-- Divider -->
+
+        <div class="divider">
+
+            <span>OR</span>
+
+        </div>
+
+        <!-- Social Buttons -->
+
+        <div class="social-login">
+
+            <button type="button">
+
+                <i class="fab fa-google"></i>
+
+                Google
+
+            </button>
+
+            <button type="button">
+
+                <i class="fab fa-github"></i>
+
+                GitHub
+
+            </button>
+
+        </div>
+
+        <p class="register-text">
+
+            Already have an account?
+
+            <a href="login.html">
+
+                Login
+
+            </a>
+
+        </p>
+
+    </form>
+
+</div>
+
+</div>
+
+<script src="js/register.js"></script>
+
+</body>
+</html>
