@@ -1,7 +1,10 @@
 /* ==========================
    CONTACT PAGE
 ========================== */
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
+/* Reset */
 *{
     margin:0;
     padding:0;
@@ -31,34 +34,29 @@ body{
     transition:.3s ease;
 }
 
-header{
-    width:100%;
-    background:var(--card);
-    box-shadow:var(--shadow);
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:1000;
-}
 
-.navbar{
-    max-width:1200px;
-    margin:auto;
+
+.nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:18px 20px;
+    padding:15px 40px;
+    background:var(--card);
+    box-shadow:var(--shadow);
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 .logo{
+    color:var(--primary);
     font-size:28px;
     font-weight:700;
-    color:var(--primary);
 }
 
 .nav-links{
     display:flex;
-    list-style:none;
+    align-items:center;
     gap:25px;
 }
 
@@ -66,19 +64,38 @@ header{
     text-decoration:none;
     color:var(--text);
     font-weight:500;
+    transition:.3s;
 }
 
+.nav-links a:hover,
 .nav-links a.active{
     color:var(--primary);
 }
 
+
 .theme-btn{
+    width:48px;
+    height:48px;
     border:none;
-    background:var(--primary);
+    border-radius:50%;
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
     color:#fff;
-    padding:10px 14px;
-    border-radius:8px;
+    font-size:20px;
     cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:all .35s ease;
+    box-shadow:0 8px 20px rgba(79,70,229,.35);
+}
+
+.theme-btn:hover{
+    transform:rotate(180deg) scale(1.1);
+    box-shadow:0 12px 28px rgba(79,70,229,.5);
+}
+
+.theme-btn:active{
+    transform:scale(.9);
 }
 
 /* ==========================
@@ -205,6 +222,16 @@ header{
     transform:translateY(-3px);
     opacity:.95;
 }
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:20px;
+    background:#111827;
+    color:white;
+    margin-top:50px;
+}
+
 
 /* ==========================
    MAP SECTION

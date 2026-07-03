@@ -29,73 +29,77 @@ body{
 ======================= */
 
 header{
-
+    width:100%;
     position:sticky;
     top:0;
-
-    width:100%;
-
-    background:#fff;
-
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
-
     z-index:1000;
-
+    background:var(--card);
+    box-shadow:var(--shadow);
 }
 
-.navbar{
-
-    max-width:1200px;
-
-    margin:auto;
-
+.nav{
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
-    padding:18px 20px;
-
+    padding:15px 40px;
+    background:var(--card);
+    box-shadow:var(--shadow);
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 .logo{
-
+    color:var(--primary);
     font-size:28px;
-
     font-weight:700;
-
-    color:#4f46e5;
-
 }
 
-.navbar ul{
-
-    list-style:none;
-
+.nav-links{
     display:flex;
-
-    gap:30px;
-
+    align-items:center;
+    gap:25px;
 }
 
-.navbar ul li a{
-
+.nav-links a{
     text-decoration:none;
-
-    color:#333;
-
+    color:var(--text);
     font-weight:500;
-
     transition:.3s;
-
 }
 
-.navbar ul li a:hover,
-.navbar .active{
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--primary);
+}
+/* Space between links and theme button */
+.theme-btn{
+    margin-left:20px;
+}
 
-    color:#4f46e5;
+.theme-btn{
+    width:48px;
+    height:48px;
+    border:none;
+    border-radius:50%;
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:all .35s ease;
+    box-shadow:0 8px 20px rgba(79,70,229,.35);
+}
 
+.theme-btn:hover{
+    transform:rotate(180deg) scale(1.1);
+    box-shadow:0 12px 28px rgba(79,70,229,.5);
+}
+
+.theme-btn:active{
+    transform:scale(.9);
 }
 
 /* =======================

@@ -1,3 +1,8 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+
 *{
     margin:0;
     padding:0;
@@ -28,44 +33,80 @@ body{
 }
 
 
-/* Navbar */
-.navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 30px;
+/* ================= NAVBAR ================= */
+
+header{
+    width:100%;
+    position:sticky;
+    top:0;
+    z-index:1000;
     background:var(--card);
     box-shadow:var(--shadow);
 }
 
-.navbar .logo{
-    color:var(--primary);
-    font-weight:700;
-    font-size:26px;
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    background:var(--card);
+    box-shadow:var(--shadow);
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-.navbar a{
-    margin:0 10px;
+.logo{
+    color:var(--primary);
+    font-size:28px;
+    font-weight:700;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-links a{
     text-decoration:none;
     color:var(--text);
+    font-weight:500;
     transition:.3s;
 }
 
-.navbar a:hover{
+.nav-links a:hover,
+.nav-links a.active{
     color:var(--primary);
 }
-
-.navbar a.active{
-    color:var(--primary);
+/* Space between links and theme button */
+.theme-btn{
+    margin-left:20px;
 }
 
 .theme-btn{
+    width:48px;
+    height:48px;
     border:none;
-    background:var(--primary);
+    border-radius:50%;
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
     color:#fff;
-    padding:10px 14px;
-    border-radius:8px;
+    font-size:20px;
     cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:all .35s ease;
+    box-shadow:0 8px 20px rgba(79,70,229,.35);
+}
+
+.theme-btn:hover{
+    transform:rotate(180deg) scale(1.1);
+    box-shadow:0 12px 28px rgba(79,70,229,.5);
+}
+
+.theme-btn:active{
+    transform:scale(.9);
 }
 
 /* Hero */

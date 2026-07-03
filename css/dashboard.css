@@ -1,12 +1,15 @@
 /* ==============================
    Dashboard - StartupFinder
 ============================== */
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
+/* Reset */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Poppins, sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
@@ -14,30 +17,66 @@ body{
 }
 
 /* Navbar */
-.navbar{
+.nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:15px 30px;
-    background:#fff;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    padding:15px 40px;
+    background:var(--card);
+    box-shadow:var(--shadow);
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-.navbar .logo{
-    font-size:22px;
+.logo{
+    color:var(--primary);
+    font-size:28px;
     font-weight:700;
-    color:#4f46e5;
 }
 
-.navbar nav a{
-    margin:0 12px;
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-links a{
     text-decoration:none;
-    color:#333;
+    color:var(--text);
     font-weight:500;
+    transition:.3s;
 }
 
-.navbar nav a.active{
-    color:#4f46e5;
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--primary);
+}
+
+
+.theme-btn{
+    width:48px;
+    height:48px;
+    border:none;
+    border-radius:50%;
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:all .35s ease;
+    box-shadow:0 8px 20px rgba(79,70,229,.35);
+}
+
+.theme-btn:hover{
+    transform:rotate(180deg) scale(1.1);
+    box-shadow:0 12px 28px rgba(79,70,229,.5);
+}
+
+.theme-btn:active{
+    transform:scale(.9);
 }
 
 /* Dashboard */
