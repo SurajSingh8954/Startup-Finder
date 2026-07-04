@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | StartupFinder</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/auth.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Left Side -->
+
+        <div class="left">
+
+            <h1>StartupFinder</h1>
+
+            <h2>Create Your Developer Profile</h2>
+
+            <p>
+                Join thousands of developers, designers,
+                startup founders, and innovators.
+                Showcase your skills, connect with startups,
+                and build amazing products together.
+            </p>
+
+            <img src="images/register-illustration.svg"
+                alt="Developer Illustration">
+
+        </div>
+
+        <!-- Right Side -->
+
+        <div class="right">
+
+            <form id="registerForm">
+
+                <h2>Create Account</h2>
+
+                <!-- Full Name -->
+
+                <div class="input-box">
+
+                    <i class="fas fa-user"></i>
+
+                    <input
+                        type="text"
+                        id="fullname"
+                        placeholder="Full Name"
+                        required>
+
+                </div>
+
+                <!-- Username -->
+
+                <div class="input-box">
+
+                    <i class="fas fa-at"></i>
+
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Username"
+                        required>
+
+                </div>
+
+                <!-- Email -->
+
+                <div class="input-box">
+
+                    <i class="fas fa-envelope"></i>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Email Address"
+                        required>
+
+                </div>
+
+                <!-- Phone -->
+
+                <div class="input-box">
+
+                    <i class="fas fa-phone"></i>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Phone Number"
+                        maxlength="10"
+                        required>
+
+                </div>
+
+                <!-- Role -->
+
+                <div class="input-box">
+
+                    <select id="role" required>
+
+                        <option value="">Select Your Role</option>
+
+                        <option>Frontend Developer</option>
+
+                        <option>Backend Developer</option>
+
+                        <option>Full Stack Developer</option>
+
+                        <option>Mobile App Developer</option>
+
+                        <option>UI / UX Designer</option>
+
+                        <option>AI / ML Engineer</option>
+
+                        <option>DevOps Engineer</option>
+
+                    </select>
+
+                </div>
+
+                <!-- Skills -->
+
+                <div class="form-group">
+
+                    <label>Select Your Skills</label>
+
+                    <div class="skills">
+
+                        <label><input type="checkbox" value="HTML"> HTML</label>
+
+                        <label><input type="checkbox" value="CSS"> CSS</label>
+
+                        <label><input type="checkbox" value="JavaScript"> JavaScript</label>
+
+                        <label><input type="checkbox" value="React"> React</label>
+
+                        <label><input type="checkbox" value="Node.js"> Node.js</label>
+
+                        <label><input type="checkbox" value="MongoDB"> MongoDB</label>
+
+                        <label><input type="checkbox" value="Python"> Python</label>
+
+                        <label><input type="checkbox" value="Java"> Java</label>
+
+                        <label><input type="checkbox" value="Flutter"> Flutter</label>
+
+                        <label><input type="checkbox" value="UI/UX"> UI / UX</label>
+
+                    </div>
+
+                </div>
+
+                <!-- Experience -->
+
+                <div class="input-box">
+
+                    <select id="experience">
+
+                        <option value="">Experience Level</option>
+
+                        <option>Beginner</option>
+
+                        <option>Intermediate</option>
+
+                        <option>Advanced</option>
+
+                    </select>
+
+                </div>
+
+                <!-- Bio -->
+
+                <div class="input-box">
+
+                    <textarea
+                        id="bio"
+                        rows="5"
+                        placeholder="Tell us about yourself..."></textarea>
+
+                </div>
+
+                <!-- Profile Image -->
+
+                <div class="input-box">
+
+                    <label class="upload-label">
+
+                        <i class="fa-solid fa-image"></i>
+                        Upload Profile Picture
+                    </label>
+                    <input
+                        type="file"
+                        id="profileImage"
+                        accept="image/*">
+                </div>
+                <!-- Password -->
+                <div class="input-box">
+                    <i class="fas fa-lock"></i>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Password"
+                        required>
+                    <i class="fas fa-eye togglePassword"></i>
+                </div>
+                <!-- Confirm Password -->
+                <div class="input-box">
+                    <i class="fas fa-lock"></i>
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm Password"
+                        required>
+                </div>
+                <!-- Terms -->
+                <div class="terms">
+                    <label>
+                        <input
+                            type="checkbox"
+                            required>
+                        I agree to the
+                        <a href="#">
+                            Terms & Conditions
+                        </a>
+                    </label>
+                </div>
+                <!-- Register Button -->
+                <button
+                    type="submit"
+                    class="login-btn">
+                    Create Account
+                </button>
+                <!-- Divider -->
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+                <!-- Social Login -->
+                <div class="social-login">
+                    <button type="button">
+                        <i class="fab fa-google"></i>
+                        Google
+                    </button>
+                    <button type="button">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </button>
+                </div>
+                <p class="register-text">
+                    Already have an account?
+                    <a href="login.html">
+                        Login
+                    </a>
+                </p>
+            </form>
+        </div>
+    </div>
+    <script src="js/register.js"></script>
+</body>
+</html>
