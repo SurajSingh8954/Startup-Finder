@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 navLinks.style.top = "80px";
                 navLinks.style.left = "0";
                 navLinks.style.width = "100%";
-                navLinks.style.background = "#fff";
+                navLinks.style.background = "var(--card)";
                 navLinks.style.padding = "20px";
                 navLinks.style.boxShadow = "0 5px 20px rgba(0,0,0,.15)";
             }
@@ -76,15 +76,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // ============================
 
     const counters = document.querySelectorAll(".stat-card h2");
+    const countersAnimated = new WeakSet();
 
-    counters.forEach(counter => {
+    function animateCounter(counter) {
+
+        if (countersAnimated.has(counter)) return;
+        countersAnimated.add(counter);
 
         const text = counter.innerText.replace("+", "");
         const target = parseInt(text);
 
         let count = 0;
 
-        const speed = target / 120;
+        const speed = target / 90;
 
         function updateCounter() {
 
@@ -108,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         updateCounter();
 
-    });
+    }
 
     // ============================
     // Search Demo
@@ -125,7 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (skill === "") {
 
-                alert("Please enter a skill.");
+                searchInput.classList.add("shake");
+                setTimeout(() => searchInput.classList.remove("shake"), 500);
 
             } else {
 
@@ -158,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Ripple Button Effect
     // ============================
 
-    const buttons = document.querySelectorAll(".btn");
+    const buttons = document.querySelectorAll(".btn, .startup-card button, .search-box button");
 
     buttons.forEach(button => {
 
@@ -166,8 +171,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const circle = document.createElement("span");
 
-            const x = e.offsetX;
-            const y = e.offsetY;
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
 
             circle.style.left = x + "px";
             circle.style.top = y + "px";
@@ -187,36 +193,94 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ============================
-    // Fade Animation
+    // Staggered Reveal on Scroll
+    // (features, startups, stats cards fade + rise in one after another)
     // ============================
 
-    const cards = document.querySelectorAll(
-        ".feature-card, .startup-card, .stat-card"
-    );
+    const groups = [
+        document.querySelectorAll(".stat-card"),
+        document.querySelectorAll(".feature-card"),
+        document.querySelectorAll(".startup-card")
+    ];
 
-    const observer = new IntersectionObserver(entries => {
+    const revealObserver = new IntersectionObserver((entries, obs) => {
 
         entries.forEach(entry => {
 
             if (entry.isIntersecting) {
 
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
+                const el = entry.target;
+                const delay = parseFloat(el.dataset.delay || 0);
+
+                setTimeout(() => {
+                    el.style.opacity = "1";
+                    el.style.transform = "translateY(0)";
+                }, delay);
+
+                if (el.matches(".stat-card")) {
+                    animateCounter(el.querySelector("h2"));
+                }
+
+                obs.unobserve(el);
 
             }
 
         });
 
+    }, { threshold: 0.2 });
+
+    groups.forEach(group => {
+
+        group.forEach((card, i) => {
+
+            card.style.transition = "opacity .6s ease, transform .6s ease";
+            card.dataset.delay = i * 120;
+
+            revealObserver.observe(card);
+
+        });
+
     });
 
-    cards.forEach(card => {
+    // ============================
+    // Hero Image Parallax (mouse move tilt)
+    // ============================
 
-        card.style.opacity = "0";
-        card.style.transform = "translateY(40px)";
-        card.style.transition = ".8s";
+    const heroSection = document.querySelector(".hero");
+    const heroImage = document.querySelector(".hero-image img");
 
-        observer.observe(card);
+    if (heroSection && heroImage && window.matchMedia("(min-width: 901px)").matches) {
 
-    });
+        heroSection.addEventListener("mousemove", (e) => {
+
+            const rect = heroSection.getBoundingClientRect();
+            const relX = (e.clientX - rect.left) / rect.width - 0.5;
+            const relY = (e.clientY - rect.top) / rect.height - 0.5;
+
+            heroImage.style.transform =
+                `rotateY(${relX * 12}deg) rotateX(${relY * -12}deg) scale(1.03)`;
+
+        });
+
+        heroSection.addEventListener("mouseleave", () => {
+            heroImage.style.transform = "rotateY(0deg) rotateX(0deg) scale(1)";
+        });
+
+    }
+
+    // ============================
+    // Theme Button Spin Feedback
+    // ============================
+
+    const themeToggle = document.getElementById("themeToggle");
+
+    if (themeToggle) {
+
+        themeToggle.addEventListener("click", () => {
+            themeToggle.classList.add("spin");
+            setTimeout(() => themeToggle.classList.remove("spin"), 500);
+        });
+
+    }
 
 });

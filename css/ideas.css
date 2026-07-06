@@ -13,16 +13,20 @@
     --bg:#f5f7fb;
     --card:#ffffff;
     --text:#222;
+    --text-muted:rgba(34,34,34,.65);
     --primary:#4f46e5;
     --shadow:0 10px 30px rgba(0,0,0,.08);
+    --tag-bg:#eef2ff;
 }
 
 body.dark{
     --bg:#0f172a;
     --card:#1e293b;
     --text:#f8fafc;
+    --text-muted:rgba(248,250,252,.65);
     --primary:#818cf8;
     --shadow:0 10px 30px rgba(0,0,0,.45);
+    --tag-bg:rgba(129,140,248,.15);
 }
 
 *{
@@ -36,9 +40,10 @@ html{
     scroll-behavior:smooth;
 }
 
-        body{
-            background:var(--bg);
-            color:var(--text);
+body{
+    background:var(--bg);
+    color:var(--text);
+    transition:background .4s ease, color .4s ease;
 }
 
 /* =======================
@@ -64,6 +69,7 @@ header{
     position:sticky;
     top:0;
     z-index:1000;
+    transition:background .4s ease, box-shadow .4s ease;
 }
 
 .logo{
@@ -83,12 +89,31 @@ header{
     color:var(--text);
     font-weight:500;
     transition:.3s;
+    position:relative;
+    padding-bottom:4px;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-2px;
+    width:0%;
+    height:2px;
+    background:var(--primary);
+    transition:width .3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after{
+    width:100%;
 }
 
 .nav-links a:hover,
 .nav-links a.active{
     color:var(--primary);
 }
+
 /* Space between links and theme button */
 .theme-btn{
     margin-left:20px;
@@ -118,6 +143,22 @@ header{
     transform:scale(.9);
 }
 
+.theme-btn.spin{
+    animation:spinOnce .5s ease;
+}
+
+@keyframes spinOnce{
+    from{ transform:rotate(0deg) scale(1); }
+    to{ transform:rotate(360deg) scale(1); }
+}
+
+.menu-btn{
+    display:none;
+    font-size:24px;
+    cursor:pointer;
+    color:var(--text);
+    margin-left:15px;
+}
 
 /* =======================
    Hero
@@ -141,6 +182,10 @@ header{
 
     margin-bottom:20px;
 
+    opacity:0;
+    transform:translateY(20px);
+    animation:heroIn .7s ease forwards;
+
 }
 
 .hero p{
@@ -153,6 +198,17 @@ header{
 
     font-size:18px;
 
+    opacity:0;
+    transform:translateY(20px);
+    animation:heroIn .7s ease .15s forwards;
+
+}
+
+@keyframes heroIn{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 /* =======================
@@ -163,7 +219,7 @@ header{
 
     max-width:900px;
 
-    margin:50px auto;
+    margin:50px auto 0;
 
     padding:0 20px;
 
@@ -173,7 +229,7 @@ header{
 
     display:flex;
 
-    background:#fff;
+    background:var(--card);
 
     border-radius:12px;
 
@@ -181,6 +237,12 @@ header{
 
     box-shadow:0 8px 25px rgba(0,0,0,.08);
 
+    transition:box-shadow .3s ease, background .4s ease;
+
+}
+
+.search-box:focus-within{
+    box-shadow:0 8px 25px rgba(79,70,229,.25);
 }
 
 .search-box input{
@@ -195,13 +257,17 @@ header{
 
     font-size:16px;
 
+    background:var(--card);
+
+    color:var(--text);
+
 }
 
 .search-box button{
 
     border:none;
 
-    background:#4f46e5;
+    background:var(--primary);
 
     color:#fff;
 
@@ -211,12 +277,31 @@ header{
 
     transition:.3s;
 
+    display:flex;
+    align-items:center;
+    gap:8px;
+    position:relative;
+    overflow:hidden;
+
 }
 
 .search-box button:hover{
 
     background:#4338ca;
 
+}
+
+.no-results{
+    display:none;
+    text-align:center;
+    margin-top:25px;
+    color:var(--text-muted);
+    font-size:15px;
+}
+
+.no-results.show{
+    display:block;
+    animation:heroIn .4s ease forwards;
 }
 
 /* =======================
@@ -251,9 +336,9 @@ header{
 
     cursor:pointer;
 
-    background:#fff;
+    background:var(--card);
 
-    color:#333;
+    color:var(--text);
 
     font-weight:600;
 
@@ -261,19 +346,24 @@ header{
 
     transition:.3s;
 
+    position:relative;
+    overflow:hidden;
+
 }
 
 .filters button:hover{
 
-    background:#4f46e5;
+    background:var(--primary);
 
     color:#fff;
+
+    transform:translateY(-2px);
 
 }
 
 .filters .active{
 
-    background:#4f46e5;
+    background:var(--primary);
 
     color:#fff;
 
@@ -288,7 +378,7 @@ header{
    Ideas Grid
 ======================= */
 
-.ideas{
+.ideas-grid{
 
     max-width:1200px;
 
@@ -316,14 +406,21 @@ header{
 
     padding:25px;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    box-shadow:var(--shadow);
 
-    transition:.35s ease;
+    transition:transform .35s ease, box-shadow .35s ease, background .4s ease;
 
     position:relative;
 
     overflow:hidden;
 
+    opacity:0;
+    transform:translateY(40px);
+
+}
+
+.idea-card.revealed{
+    animation:fadeUp .6s ease forwards;
 }
 
 .idea-card::before{
@@ -355,6 +452,11 @@ header{
 
 }
 
+/* hidden by the filter/search logic */
+.idea-card.hidden-card{
+    display:none;
+}
+
 /* =======================
    Category Tag
 ======================= */
@@ -367,9 +469,9 @@ header{
 
     border-radius:50px;
 
-    background:#eef2ff;
+    background:var(--tag-bg);
 
-    color:#4f46e5;
+    color:var(--primary);
 
     font-size:13px;
 
@@ -399,7 +501,7 @@ header{
 
 .idea-card p{
 
-    color:#666;
+    color:var(--text-muted);
 
     line-height:1.7;
 
@@ -421,7 +523,7 @@ header{
 
     font-size:14px;
 
-    color:#555;
+    color:var(--text-muted);
 
 }
 
@@ -437,8 +539,29 @@ header{
 
 .info i{
 
-    color:#4f46e5;
+    color:var(--primary);
 
+}
+
+.like-btn{
+    cursor:pointer;
+    user-select:none;
+    transition:transform .2s ease;
+}
+
+.like-btn:hover{
+    transform:scale(1.08);
+}
+
+.like-btn.liked i{
+    color:#ef4444;
+    animation:pop .35s ease;
+}
+
+@keyframes pop{
+    0%{ transform:scale(1); }
+    50%{ transform:scale(1.4); }
+    100%{ transform:scale(1); }
 }
 
 /* =======================
@@ -455,7 +578,7 @@ header{
 
     border-radius:12px;
 
-    background:#4f46e5;
+    background:var(--primary);
 
     color:#fff;
 
@@ -466,6 +589,9 @@ header{
     cursor:pointer;
 
     transition:.3s;
+
+    position:relative;
+    overflow:hidden;
 
 }
 
@@ -480,12 +606,6 @@ header{
 /* =======================
    Card Animation
 ======================= */
-
-.idea-card{
-
-    animation:fadeUp .7s ease;
-
-}
 
 @keyframes fadeUp{
 
@@ -505,6 +625,23 @@ header{
 
     }
 
+}
+
+/* Ripple (added by JS to any button with .ripple-wrap) */
+.ripple{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,.6);
+    transform:scale(0);
+    animation:rippleAnim .6s ease-out;
+    pointer-events:none;
+}
+
+@keyframes rippleAnim{
+    to{
+        transform:scale(4);
+        opacity:0;
+    }
 }
 
 /* ==========================================
@@ -530,8 +667,8 @@ header{
     height:45px;
     border:none;
     border-radius:50%;
-    background:#fff;
-    color:#333;
+    background:var(--card);
+    color:var(--text);
     cursor:pointer;
     font-weight:600;
     box-shadow:0 5px 15px rgba(0,0,0,.08);
@@ -539,13 +676,13 @@ header{
 }
 
 .pagination button:hover{
-    background:#4f46e5;
+    background:var(--primary);
     color:#fff;
     transform:translateY(-3px);
 }
 
 .pagination .active{
-    background:#4f46e5;
+    background:var(--primary);
     color:#fff;
 }
 
@@ -617,6 +754,18 @@ header{
 
 }
 
+.newsletter-box input.shake{
+    animation:shake .4s ease;
+}
+
+@keyframes shake{
+    0%,100%{ transform:translateX(0); }
+    20%{ transform:translateX(-8px); }
+    40%{ transform:translateX(8px); }
+    60%{ transform:translateX(-6px); }
+    80%{ transform:translateX(6px); }
+}
+
 .newsletter-box button{
 
     padding:16px 30px;
@@ -633,12 +782,27 @@ header{
 
     transition:.3s;
 
+    position:relative;
+    overflow:hidden;
+
 }
 
 .newsletter-box button:hover{
 
     background:#000;
 
+}
+
+.newsletter-msg{
+    margin-top:18px;
+    font-weight:600;
+    min-height:20px;
+    opacity:0;
+    transition:opacity .3s ease;
+}
+
+.newsletter-msg.show{
+    opacity:1;
 }
 
 /* ==========================
@@ -701,6 +865,7 @@ footer{
 .footer-container a:hover{
 
     color:#fff;
+    padding-left:4px;
 
 }
 
@@ -750,22 +915,26 @@ footer .copyright{
 
 @media(max-width:768px){
 
-.navbar{
-
-    flex-direction:column;
-
-    gap:20px;
-
+.menu-btn{
+    display:block;
 }
 
-.navbar ul{
+.nav-links{
+    display:none;
+}
 
-    flex-wrap:wrap;
-
-    justify-content:center;
-
+.nav-links.open{
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:var(--card);
+    padding:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
     gap:15px;
-
+    z-index:999;
 }
 
 .search-box{
@@ -779,6 +948,8 @@ footer .copyright{
     width:100%;
 
     padding:16px;
+
+    justify-content:center;
 
 }
 
@@ -868,4 +1039,12 @@ footer .copyright{
 
 }
 
+}
+
+@media (prefers-reduced-motion:reduce){
+    *{
+        animation-duration:0.001ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:0.001ms !important;
+    }
 }

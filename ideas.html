@@ -34,14 +34,18 @@
 
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="ideas.html">Ideas</a>
+            <a href="ideas.html" class="active">Ideas</a>
             <a href="developers.html">Developers</a>
             <a href="teams.html">Teams</a>
-            <a href="about.html" class="active">About</a>
+            <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
         </div>
 
         <button id="themeToggle" class="theme-btn">🌙</button>
+
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
 
     </nav>
     </header>   
@@ -87,27 +91,33 @@ Search
 
 </div>
 
+<p class="no-results" id="noResults">No ideas match your search. Try a different keyword or filter.</p>
+
 </section>
 
 <!-- ================= FILTER ================= -->
 
-<section class="filters">
+<section class="filters" id="filterBar">
 
-<button class="active">All</button>
+<button class="active" data-filter="All">All</button>
 
-<button>AI</button>
+<button data-filter="AI">AI</button>
 
-<button>FinTech</button>
+<button data-filter="FinTech">FinTech</button>
 
-<button>Health</button>
+<button data-filter="Health">Health</button>
 
-<button>Education</button>
+<button data-filter="Education">Education</button>
 
-<button>E-Commerce</button>
+<button data-filter="E-Commerce">E-Commerce</button>
 
-<button>Gaming</button>
+<button data-filter="Gaming">Gaming</button>
 
-<button>Social</button>
+<button data-filter="Social">Social</button>
+
+<button data-filter="Travel">Travel</button>
+
+<button data-filter="Environment">Environment</button>
 
 </section>
 
@@ -146,11 +156,11 @@ ATS-friendly resumes instantly.
 
 </span>
 
-<span>
+<span class="like-btn">
 
 <i class="fas fa-heart"></i>
 
-230 Likes
+<span class="like-count">230</span> Likes
 
 </span>
 
@@ -197,11 +207,11 @@ using AI-powered analytics.
 
 </span>
 
-<span>
+<span class="like-btn">
 
 <i class="fas fa-heart"></i>
 
-180 Likes
+<span class="like-count">180</span> Likes
 
 </span>
 
@@ -248,11 +258,11 @@ for coding and business skills.
 
 </span>
 
-<span>
+<span class="like-btn">
 
 <i class="fas fa-heart"></i>
 
-312 Likes
+<span class="like-count">312</span> Likes
 
 </span>
 
@@ -299,11 +309,11 @@ real-time quiz battles.
 
 </span>
 
-<span>
+<span class="like-btn">
 
 <i class="fas fa-heart"></i>
 
-145 Likes
+<span class="like-count">145</span> Likes
 
 </span>
 
@@ -350,11 +360,11 @@ with smart AI suggestions.
 
 </span>
 
-<span>
+<span class="like-btn">
 
 <i class="fas fa-heart"></i>
 
-289 Likes
+<span class="like-count">289</span> Likes
 
 </span>
 
@@ -401,11 +411,11 @@ sell products online.
 
 </span>
 
-<span>
+<span class="like-btn">
 
 <i class="fas fa-heart"></i>
 
-364 Likes
+<span class="like-count">364</span> Likes
 
 </span>
 
@@ -434,7 +444,7 @@ View Details
 
     <div class="info">
         <span><i class="fas fa-users"></i> 7 Members</span>
-        <span><i class="fas fa-heart"></i> 210 Likes</span>
+        <span class="like-btn"><i class="fas fa-heart"></i> <span class="like-count">210</span> Likes</span>
     </div>
 
     <button>View Details</button>
@@ -454,7 +464,7 @@ View Details
 
     <div class="info">
         <span><i class="fas fa-users"></i> 12 Members</span>
-        <span><i class="fas fa-heart"></i> 455 Likes</span>
+        <span class="like-btn"><i class="fas fa-heart"></i> <span class="like-count">455</span> Likes</span>
     </div>
 
     <button>View Details</button>
@@ -474,7 +484,7 @@ View Details
 
     <div class="info">
         <span><i class="fas fa-users"></i> 11 Members</span>
-        <span><i class="fas fa-heart"></i> 390 Likes</span>
+        <span class="like-btn"><i class="fas fa-heart"></i> <span class="like-count">390</span> Likes</span>
     </div>
 
     <button>View Details</button>
@@ -487,7 +497,7 @@ View Details
 
 <section class="pagination">
 
-    <button>&laquo;</button>
+    <button aria-label="Previous page">&laquo;</button>
 
     <button class="active">1</button>
 
@@ -497,7 +507,7 @@ View Details
 
     <button>4</button>
 
-    <button>&raquo;</button>
+    <button aria-label="Next page">&raquo;</button>
 
 </section>
 
@@ -516,15 +526,18 @@ View Details
 
         <input
             type="email"
+            id="newsletterEmail"
             placeholder="Enter your email">
 
-        <button>
+        <button id="newsletterBtn">
 
             Subscribe
 
         </button>
 
     </div>
+
+    <p class="newsletter-msg" id="newsletterMsg"></p>
 
 </section>
 

@@ -44,6 +44,10 @@
 
         <button id="themeToggle" class="theme-btn">🌙</button>
 
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+
     </nav>
     </header>   
 
@@ -89,25 +93,27 @@ Search
 
 </div>
 
+<p class="no-results" id="noResults">No developers match your search. Try a different keyword or filter.</p>
+
 </section>
 
 <!-- ================= FILTERS ================= -->
 
-<section class="filters">
+<section class="filters" id="filterBar">
 
-<button class="active">All</button>
+<button class="active" data-filter="all">All</button>
 
-<button>Frontend</button>
+<button data-filter="frontend">Frontend</button>
 
-<button>Backend</button>
+<button data-filter="backend">Backend</button>
 
-<button>Full Stack</button>
+<button data-filter="full stack">Full Stack</button>
 
-<button>UI/UX</button>
+<button data-filter="ui/ux">UI/UX</button>
 
-<button>Mobile</button>
+<button data-filter="mobile">Mobile</button>
 
-<button>AI/ML</button>
+<button data-filter="ai/ml">AI/ML</button>
 
 </section>
 
@@ -117,7 +123,7 @@ Search
 
 <!-- Developer 1 -->
 
-<div class="developer-card">
+<div class="developer-card" data-category="frontend">
 
 <img
 src="https://i.pravatar.cc/200?img=1"
@@ -162,7 +168,7 @@ View Profile
 
 <!-- Developer 2 -->
 
-<div class="developer-card">
+<div class="developer-card" data-category="ui/ux">
 
 <img
 src="https://i.pravatar.cc/200?img=2"
@@ -206,7 +212,7 @@ View Profile
 
 <!-- Developer 3 -->
 
-<div class="developer-card">
+<div class="developer-card" data-category="backend">
 
 <img
 src="https://i.pravatar.cc/200?img=3"
@@ -250,7 +256,7 @@ View Profile
 
 <!-- Developer 4 -->
 
-<div class="developer-card">
+<div class="developer-card" data-category="full stack">
 
 <img
 src="https://i.pravatar.cc/200?img=4"
@@ -294,7 +300,7 @@ View Profile
 
 <!-- Developer 5 -->
 
-<div class="developer-card">
+<div class="developer-card" data-category="mobile">
 
 <img
 src="https://i.pravatar.cc/200?img=5"
@@ -338,7 +344,7 @@ View Profile
 
 <!-- Developer 6 -->
 
-<div class="developer-card">
+<div class="developer-card" data-category="ai/ml">
 
 <img
 src="https://i.pravatar.cc/200?img=6"
@@ -380,11 +386,9 @@ View Profile
 
 </div>
 
-</section>
-
 <!-- ================= MORE DEVELOPERS ================= -->
 
-<div class="developer-card">
+<div class="developer-card" data-category="backend">
 
     <img src="https://i.pravatar.cc/200?img=7"
          alt="Developer">
@@ -415,7 +419,7 @@ View Profile
 
 </div>
 
-<div class="developer-card">
+<div class="developer-card" data-category="frontend">
 
     <img src="https://i.pravatar.cc/200?img=8"
          alt="Developer">
@@ -446,7 +450,7 @@ View Profile
 
 </div>
 
-<div class="developer-card">
+<div class="developer-card" data-category="backend">
 
     <img src="https://i.pravatar.cc/200?img=9"
          alt="Developer">
@@ -483,7 +487,7 @@ View Profile
 
 <section class="pagination">
 
-    <button>&laquo;</button>
+    <button aria-label="Previous page">&laquo;</button>
 
     <button class="active">1</button>
 
@@ -491,7 +495,7 @@ View Profile
 
     <button>3</button>
 
-    <button>&raquo;</button>
+    <button aria-label="Next page">&raquo;</button>
 
 </section>
 
