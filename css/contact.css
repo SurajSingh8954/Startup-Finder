@@ -289,7 +289,7 @@ footer{
 }
 
 /* Mobile */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
 
     .nav {
         padding: 15px 20px;
@@ -340,7 +340,7 @@ footer{
     .map iframe {
         height: 300px;
     }
-}
+} */
 
 /* Small Mobile */
 @media (max-width: 480px) {
