@@ -343,7 +343,7 @@ footer{
 } */
 
 /* Small Mobile */
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
 
     .nav {
         padding: 12px 15px;
@@ -396,7 +396,7 @@ footer{
         padding: 18px;
         font-size: 14px;
     }
-}
+} */
 
 .menu-btn{
     display:none;
