@@ -343,7 +343,7 @@ footer{
 } */
 
 /* Small Mobile */
-/* @media (max-width: 480px) {
+@media (max-width: 480px) {
 
     .nav {
         padding: 12px 15px;
@@ -392,13 +392,8 @@ footer{
         height: 250px;
     }
 
-    footer {
-        padding: 18px;
-        font-size: 14px;
-    }
-} */
 
-.menu-btn{
+    .menu-btn{
     display:none;
     font-size:24px;
     cursor:pointer;
@@ -413,6 +408,10 @@ footer{
 
     .nav-links{
         display:none;
+    }
+
+    .nav-links{
+        display:flex;
         position:absolute;
         top:70px;
         left:0;
@@ -423,8 +422,11 @@ footer{
         box-shadow:var(--shadow);
         gap:15px;
     }
+}
 
-    .nav-links.open{
-        display:flex;
+    footer {
+        padding: 18px;
+        font-size: 14px;
     }
 }
+
