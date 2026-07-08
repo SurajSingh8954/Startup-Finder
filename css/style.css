@@ -581,15 +581,7 @@ footer hr{
     border-color:#444;
 }
 
-/* footer p{
-    text-align:center;
-} */
-
-/* =========================
-   RESPONSIVE DESIGN
-========================= */
-
-/* Tablets */
+/* RESPONSIVE DESIGN */
 @media (max-width: 992px) {
 
     .hero {
