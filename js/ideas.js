@@ -1,10 +1,5 @@
 // ===============================
 // Startup Team Finder - ideas.js
-// ===============================
-// Note: the ideas below are rendered directly in ideas.html (static cards).
-// This script adds the interactive behavior: mobile menu, search, category
-// filtering, like toggling, staggered reveal animation, ripple feedback,
-// and newsletter validation.
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -19,8 +14,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (menuBtn && navLinks) {
         menuBtn.addEventListener("click", () => {
-            navLinks.classList.toggle("open");
-        });
+    navLinks.classList.toggle("open");
+
+    const icon = menuBtn.querySelector("i");
+
+    if (navLinks.classList.contains("open")) {
+        icon.classList.replace("fa-bars", "fa-xmark");
+    } else {
+        icon.classList.replace("fa-xmark", "fa-bars");
+    }
+});
     }
 
     // ============================

@@ -10,9 +10,7 @@ if (toggleBtn) {
     }
  
     toggleBtn.addEventListener("click", () => {
- 
         body.classList.toggle("dark");
- 
         if (body.classList.contains("dark")) {
             localStorage.setItem("theme", "dark");
             toggleBtn.innerHTML = "☀️";
@@ -20,7 +18,5 @@ if (toggleBtn) {
             localStorage.setItem("theme", "light");
             toggleBtn.innerHTML = "🌙";
         }
- 
     });
- 
 }

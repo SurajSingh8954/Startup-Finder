@@ -34,9 +34,15 @@ body.dark{
 }
 
 body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background:var(--bg);
     color:var(--text);
     transition:background .4s ease, color .4s ease;
+}
+main{
+    flex:1;
 }
 
 /* smooth color-morph on every themed element too */
@@ -532,6 +538,8 @@ footer{
     background:#111827;
     color:#fff;
     padding:50px 20px;
+    text-align:center;
+    margin-top:auto;
 }
 
 .footer-content{

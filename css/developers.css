@@ -40,9 +40,15 @@ html{
 }
 
 body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background:var(--bg);
     color:var(--text);
     transition:background .4s ease, color .4s ease;
+}
+main{
+    flex:1;
 }
 
 /* =======================
@@ -807,7 +813,7 @@ footer{
 
     color:#fff;
 
-    margin-top:80px;
+    margin-top:auto;
 
     padding:60px 20px;
 

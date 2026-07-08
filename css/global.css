@@ -1,8 +1,6 @@
-/* /* ==========================
-   GLOBAL STYLE (ALL PAGES)
-========================== */
+/*GLOBAL STYLE (ALL PAGES)*/
 
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 *{
     margin:0;
@@ -14,13 +12,9 @@
 body{
     background:#f5f7fb;
     color:#222;
-} */
+} 
 
-/* ==========================
-   UNIFIED NAVBAR (IMPORTANT)
-========================== */
-
-/* .navbar{
+.navbar{
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -52,5 +46,4 @@ body{
 
 .navbar nav a.active{
     color:#4f46e5;
-} */ 
-
+} 
